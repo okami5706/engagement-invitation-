@@ -56,12 +56,9 @@ html,body{
     background:linear-gradient(-45deg,#14001f,#3b0066,#2a0845,#5e239d);
     background-size:400% 400%;
     animation:bgMove 20s ease infinite;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px 10px;
-    opacity:0;
-    transition:1.5s ease;
+
+    display:block;        /* IMPORTANT */
+    padding:30px 15px;    /* Proper spacing */
 }
 
 .invitation-page.show{
@@ -72,21 +69,21 @@ html,body{
 .invitation-border{
     border:3px solid gold;
     border-radius:30px;
-    padding:30px 15px;
     box-shadow:0 0 25px gold;
+
     width:100%;
-    max-width:900px;
+    max-width:95%;        /* Makes it wide */
+    margin:0 auto;        /* Center it */
+    padding:25px 10px;
 }
 
 /* CARD */
 .card{
     background:white;
-    width:100%;
-    max-width:700px;
-    margin:auto;
-    padding:40px;
-    border-radius:25px;
-    box-shadow:0 30px 90px rgba(0,0,0,0.8);
+    width:100%;           /* Full width inside border */
+    padding:30px 20px;    /* Better mobile padding */
+    border-radius:20px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
     text-align:center;
     color:#3b0066;
 }
