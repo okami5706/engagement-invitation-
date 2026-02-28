@@ -21,19 +21,14 @@ html,body{
 }
 
 /* GOLD FRAME */
-body::before{
-    content:"";
-    position:fixed;
-    top:12px;
-    left:12px;
-    right:12px;
-    bottom:12px;
-    border:2px solid gold;
-    border-radius:25px;
-    box-shadow:0 0 20px gold;
-    pointer-events:none;
-    z-index:50;
-    max-width:calc(100vw - 24px);
+.invitation-border{
+    border:3px solid gold;
+    border-radius:30px;
+    padding:30px 15px;
+    margin:20px;
+    box-shadow:0 0 25px gold;
+    width:100%;
+    max-width:900px;
 }
 
 /* MOVING ROYAL BACKGROUND */
@@ -201,6 +196,7 @@ canvas{
 </div>
 
 <div class="invitation-page" id="invitationPage">
+    <div class="invitation-border">
 
     <div class="card">
 
