@@ -10,47 +10,12 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Georgia', serif;
 }
 
 html,body{
     height:100%;
-    overflow-x:hidden;   /* prevents sideways scroll */
-    overflow-y:auto;
-    max-width:100%;
-}
-
-/* GOLD FRAME */
-.invitation-border{
-    border:3px solid gold;
-    border-radius:30px;
-    padding:30px 15px;
-    margin:20px;
-    box-shadow:0 0 25px gold;
-    width:100%;
-    max-width:900px;
-}
-
-/* MOVING ROYAL BACKGROUND */
-.invitation-page{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(-45deg,#14001f,#3b0066,#2a0845,#5e239d);
-    background-size:400% 400%;
-    animation:bgMove 20s ease infinite;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    opacity:0;
-    transform:translateY(80px);
-    transition:1.8s ease;
-}
-
-@keyframes bgMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+    overflow-x:hidden;
+    font-family:'Georgia', serif;
 }
 
 /* FIRST PAGE */
@@ -63,7 +28,7 @@ html,body{
     align-items:center;
     flex-direction:column;
     text-align:center;
-    transition:1.8s ease;
+    transition:1.5s ease;
     z-index:5;
 }
 
@@ -84,28 +49,56 @@ html,body{
     cursor:pointer;
 }
 
+/* INVITATION PAGE */
+.invitation-page{
+    position:relative;
+    min-height:100vh;
+    background:linear-gradient(-45deg,#14001f,#3b0066,#2a0845,#5e239d);
+    background-size:400% 400%;
+    animation:bgMove 20s ease infinite;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 10px;
+    opacity:0;
+    transition:1.5s ease;
+}
+
+.invitation-page.show{
+    opacity:1;
+}
+
+/* MOVING GOLD BORDER (SCROLLS WITH CONTENT) */
+.invitation-border{
+    border:3px solid gold;
+    border-radius:30px;
+    padding:30px 15px;
+    box-shadow:0 0 25px gold;
+    width:100%;
+    max-width:900px;
+}
+
 /* CARD */
 .card{
     background:white;
     width:100%;
     max-width:700px;
     margin:auto;
-    max-width:700px;
-    padding:45px;
+    padding:40px;
     border-radius:25px;
     box-shadow:0 30px 90px rgba(0,0,0,0.8);
     text-align:center;
     color:#3b0066;
-    position:relative;
-    overflow:hidden;
 }
 
-.invitation-page.show{
-    opacity:1;
-    transform:translateY(0);
+/* Background animation */
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
 
-/* SHIMMER NAMES */
+/* Shimmer Names */
 .names{
     font-size:clamp(22px,6vw,30px);
     margin:20px 0;
@@ -197,65 +190,65 @@ canvas{
 
 <div class="invitation-page" id="invitationPage">
     <div class="invitation-border">
+        <div class="card">
 
-    <div class="card">
+            <h3 style="color:#b8860b;">IN THE NAME OF DIVINE</h3>
 
-        <h3 style="color:#b8860b;">IN THE NAME OF DIVINE</h3>
+            <p><em>Two hearts, one promise and a lifetime to come.</em></p>
 
-        <p><em>Two hearts, one promise and a lifetime to come.</em></p>
+            <p style="margin-top:20px;">
+                With immense joy and excitement, we invite you to join us as we celebrate the 
+                <strong>Engagement Ceremony</strong> of
+            </p>
 
-        <p style="margin-top:20px;">
-            With immense joy and excitement, we invite you to join us as we celebrate the 
-            <strong>Engagement Ceremony</strong> of
-        </p>
+            <div class="names">
+                Kavya Anand <br>
+                <small>D/O Dr. P. Anand & Mrs. Abirna Anand</small>
+            </div>
 
-        <div class="names">
-            Kavya Anand <br>
-            <small>D/O Dr. P. Anand & Mrs. Abirna Anand</small>
+            💍
+
+            <div class="names">
+                Sanjay <br>
+                <small>S/O Mr. M. Dayalan & Mrs. Latha</small>
+            </div>
+
+            <div class="date">
+                April 30, 2026 – Thursday <br>
+                6 PM Onwards
+            </div>
+
+            <p>Priya Mahal, Uthiramerur</p>
+
+            <div class="footer">
+                Join us as we gather with family and friends to celebrate love, commitment, and the promise of forever.
+            </div>
+
+            <div class="buttons">
+                <a class="map-btn" target="_blank"
+                   href="https://maps.app.goo.gl/i2AwdwUCDFbnVZWR9">
+                   View Location
+                </a>
+
+                <a class="whatsapp-btn" target="_blank"
+                   href="https://wa.me/916383436395?text=I%20will%20be%20attending%20the%20Engagement">
+                   RSVP on WhatsApp
+                </a>
+            </div>
+
+            <div class="photo-section">
+                <img src="couple.jpg" alt="Couple">
+            </div>
+
+            <div class="date" id="countdown"></div>
+
         </div>
-
-        💞
-
-        <div class="names">
-            Sanjay <br>
-            <small>S/O Mr. M. Dayalan & Mrs. Latha</small>
-        </div>
-
-        <div class="date">
-            April 30, 2026 – Thursday <br>
-            6 PM Onwards
-        </div>
-
-        <p>Priya Mahal, Uthiramerur</p>
-
-        <div class="footer">
-            Join us as we gather with family and friends to celebrate love, commitment, and the promise of forever.
-        </div>
-
-        <div class="buttons">
-            <a class="map-btn" target="_blank"
-               href="https://maps.app.goo.gl/i2AwdwUCDFbnVZWR9">
-               View Location
-            </a>
-
-            <a class="whatsapp-btn" target="_blank"
-               href="https://wa.me/916383436395?text=I%20will%20be%20attending%20the%20Engagement">
-               RSVP on WhatsApp
-            </a>
-        </div>
-
-        <div class="photo-section">
-            <img src="couple.jpg" alt="Couple">
-        </div>
-
-        <div class="date" id="countdown"></div>
-
     </div>
 </div>
 
 <script>
 
-/* Reveal Transition */
+/* Reveal */
 function revealInvitation(){
     const first=document.getElementById("firstPage");
     const invitation=document.getElementById("invitationPage");
@@ -271,7 +264,7 @@ function revealInvitation(){
     },1000);
 }
 
-/* Music Fade */
+/* Music */
 function fadeMusic(){
     const music=document.getElementById("music");
     music.volume=0;
@@ -282,15 +275,14 @@ function fadeMusic(){
     },200);
 }
 
-/* GOLD PARTICLES */
+/* Gold Floating Particles */
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 let particles=[];
-
-for(let i=0;i<80;i++){
+for(let i=0;i<70;i++){
     particles.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
@@ -313,7 +305,7 @@ function animateParticles(){
 }
 animateParticles();
 
-/* FIREWORK BURST */
+/* Firework Burst */
 function fireworkBurst(){
     for(let i=0;i<40;i++){
         const spark=document.createElement("div");
