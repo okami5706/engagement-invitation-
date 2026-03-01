@@ -8,16 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 html,body{
-    min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto; 
+    min-height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
     font-family:'Cormorant Garamond', serif;
 }
 
@@ -28,6 +24,9 @@ html,body{
     pointer-events:none;
     z-index:50;
 }
+
+/* MUSIC HIDDEN */
+audio{display:none;}
 
 /* FIRST PAGE */
 .first-page{
@@ -78,7 +77,6 @@ html,body{
     box-shadow:0 0 45px rgba(255,215,0,0.8);
     width:100%;
     max-width:850px;
-    min-height:90vh;   
     padding:20px;
     display:flex;
 }
@@ -91,20 +89,19 @@ html,body{
     padding:25px;
     display:flex;
     flex-direction:column;
-    justify-content:flex-start;
     text-align:center;
     color:#3b0066;
-    overflow:hidden;
 }
 
 /* LOGO */
 .logo img{
-    width:20px;        /* equal width & height */
-    height:20px;
-    object-fit:cover;  /* prevents distortion */
-    border-radius:50%; /* makes it round */
-    opacity:0.6;
-    box-shadow:0 0 12px rgba(255,215,0,0.6);
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:50%;
+    opacity:0.8;
+    box-shadow:0 0 12px gold;
+    margin-bottom:10px;
 }
 
 /* HEADING */
@@ -112,21 +109,22 @@ h3{
     font-family:'Cinzel', serif;
     font-size:20px;
     color:#b8860b;
-    margin-bottom:8px;
+    margin-bottom:6px;
 }
 
 /* BODY */
 .card p{
     font-size:16px;
-    line-height:1.5;
+    line-height:1.4;
+    margin-bottom:6px;
 }
 
 /* SHINING NAMES */
 .names{
     font-family:'Cinzel Decorative', serif;
-    font-size:clamp(32px,5vw,44px);
+    font-size:clamp(30px,5vw,40px);
     font-weight:700;
-    margin:12px 0 6px 0;
+    margin:14px 0 4px 0;
     background:linear-gradient(90deg,#5e239d,#ffd700,#5e239d);
     background-size:200% auto;
     color:transparent;
@@ -143,45 +141,47 @@ h3{
 .names small{
     display:block;
     font-size:15px;
-    margin-top:4px;
+    margin-top:2px;
+    line-height:1.2;
     color:#3b0066;
 }
 
 /* LOVE SYMBOL */
 .love-symbol img{
-    width:45px;
+    width:40px;
     margin:6px 0;
 }
 
 /* DATE */
 .date{
     font-family:'Cinzel', serif;
-    font-size:18px;
+    font-size:17px;
     color:#b8860b;
+    margin-top:6px;
 }
 
 /* LOCATION */
 .location{
-    font-size:15px;
+    font-size:14px;
     margin-top:4px;
 }
 
 /* FOOTER */
 .footer{
-    margin-top:8px;
-    font-size:15px;
+    margin-top:6px;
+    font-size:14px;
 }
 
 /* BUTTONS */
 .buttons{
-    margin-top:12px;
+    margin-top:14px;
     display:flex;
     justify-content:center;
-    gap:14px;
+    gap:12px;
 }
 
 .buttons a{
-    padding:9px 20px;
+    padding:8px 18px;
     border-radius:25px;
     font-size:14px;
     text-decoration:none;
@@ -192,21 +192,24 @@ h3{
 .map-btn{background:#b8860b;}
 .whatsapp-btn{background:#25D366;}
 
-/* COUNTDOWN BIGGER */
+/* COUNTDOWN */
 .countdown{
-    margin-top:16px;
-    font-size:clamp(16px,4vw,22px);
+    margin-top:18px;
+    font-size:20px;
     font-weight:700;
     font-family:'Cinzel', serif;
     color:#b8860b;
-    text-align:center;
 }
+
+/* PARTICLES ANIMATION */
+canvas{display:block;}
 
 </style>
 </head>
 
 <body>
 
+<audio id="bgMusic" src="music.mp3" loop></audio>
 <canvas id="particles"></canvas>
 
 <div class="first-page" id="firstPage">
@@ -218,64 +221,59 @@ h3{
     <div class="invitation-border">
         <div class="card">
 
-            <div style="flex:1;">
-                <div class="logo">
-                    <img src="logo.png" alt="Sacred Symbol">
-                </div>
-
-                <h3>IN THE NAME OF DIVINE</h3>
-
-                <p><em>Two hearts, one promise and a lifetime to come.</em></p>
-
-                <p>
-                    With immense joy and excitement, we invite you to join us as we celebrate the 
-                    <strong>Engagement Ceremony</strong> of
-                </p>
-
-                <div class="names">
-                    Kavya Anand
-                    <small>D/O Dr. P. Anand & </small><br>
-                    <small>Mrs. Abarna Anand</small>
-                </div>
-
-                <div class="love-symbol">
-                    <img src="love.png" alt="Love Symbol">
-                </div>
-
-                <div class="names">
-                    Sanjay Dayalan
-                    <small>S/O Mr. Dayalan & Mrs. Latha</small>
-                </div>
-
-                <div class="date">
-                    April 30th, 2026 – Thursday <br>
-                    6 PM Onwards
-                </div>
-
-                <div class="location">
-                    Priya Mahal, Uthiramerur
-                </div>
-
-                <div class="footer">
-                    Join us as we gather with family and friends to celebrate love, commitment, and the promise of forever.
-                </div>
+            <div class="logo">
+                <img src="logo.png" alt="Sacred Symbol">
             </div>
 
-            <div>
-                <div class="buttons">
-                    <a class="map-btn" target="_blank"
-                       href="https://maps.app.goo.gl/i2AwdwUCDFbnVZWR9">
-                       View Location
-                    </a>
+            <h3>IN THE NAME OF DIVINE</h3>
 
-                    <a class="whatsapp-btn" target="_blank"
-                       href="https://wa.me/919150237616?text=I%20will%20be%20attending%20the%20Engagement">
-                       RSVP on WhatsApp
-                    </a>
-                </div>
+            <p><em>Two hearts, one promise and a lifetime to come.</em></p>
 
-                <div class="countdown" id="countdown"></div>
+            <p>
+                With immense joy and excitement, we invite you to join us as we celebrate the 
+                <strong>Engagement Ceremony</strong> of
+            </p>
+
+            <div class="names">
+                Kavya Anand
+                <small>D/O Dr. P. Anand & Mrs. Abarna Anand</small>
             </div>
+
+            <div class="love-symbol">
+                <img src="love.png" alt="Love Symbol">
+            </div>
+
+            <div class="names">
+                Sanjay Dayalan
+                <small>S/O Mr. Dayalan & Mrs. Latha</small>
+            </div>
+
+            <div class="date">
+                April 30th, 2026 – Thursday <br>
+                6 PM Onwards
+            </div>
+
+            <div class="location">
+                Priya Mahal, Uthiramerur
+            </div>
+
+            <div class="footer">
+                Join us as we gather with family and friends to celebrate love, commitment, and the promise of forever.
+            </div>
+
+            <div class="buttons">
+                <a class="map-btn" target="_blank"
+                   href="https://maps.app.goo.gl/i2AwdwUCDFbnVZWR9">
+                   View Location
+                </a>
+
+                <a class="whatsapp-btn" target="_blank"
+                   href="https://wa.me/919150237616?text=I%20will%20be%20attending%20the%20Engagement">
+                   RSVP on WhatsApp
+                </a>
+            </div>
+
+            <div class="countdown" id="countdown"></div>
 
         </div>
     </div>
@@ -283,9 +281,17 @@ h3{
 
 <script>
 
-/* Reveal */
+/* Reveal + Music */
 function revealInvitation(){
     document.getElementById("firstPage").style.display="none";
+    const music=document.getElementById("bgMusic");
+    music.volume=0;
+    music.play();
+    let fade=setInterval(()=>{
+        if(music.volume<0.6){
+            music.volume+=0.05;
+        } else clearInterval(fade);
+    },200);
 }
 
 /* Countdown */
@@ -309,48 +315,35 @@ setInterval(()=>{
     countdown.innerHTML=`${d} Days ${h} Hours ${m} Minutes ${s} Seconds`;
 },1000);
 
-/* GRAND FRONT PARTICLES */
+/* PARTICLES */
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 let particles=[];
-
-for(let i=0;i<120;i++){
+for(let i=0;i<100;i++){
     particles.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
-        size:Math.random()*4,
-        speed:Math.random()*1.2+0.3,
-        opacity:Math.random(),
-        twinkle:Math.random()*0.02
+        size:Math.random()*3,
+        speed:Math.random()*1+0.3,
+        opacity:Math.random()
     });
 }
 
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-
     particles.forEach(p=>{
-        p.opacity+=p.twinkle;
-        if(p.opacity>=1 || p.opacity<=0.2){
-            p.twinkle*=-1;
-        }
-
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
         ctx.fillStyle=`rgba(255,215,0,${p.opacity})`;
-        ctx.shadowBlur=20;
+        ctx.shadowBlur=15;
         ctx.shadowColor="gold";
         ctx.fill();
-
         p.y+=p.speed;
-        if(p.y>canvas.height){
-            p.y=0;
-            p.x=Math.random()*canvas.width;
-        }
+        if(p.y>canvas.height){p.y=0;}
     });
-
     requestAnimationFrame(animate);
 }
 animate();
