@@ -15,7 +15,7 @@
 }
 
 html,body{
-    height:100%;
+    height:100hv;
     overflow:hidden; /* No scroll */
     font-family:'Cormorant Garamond', serif;
 }
@@ -61,7 +61,7 @@ html,body{
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:15px;
+    padding:25px;
 }
 
 @keyframes bgMove{
@@ -73,19 +73,25 @@ html,body{
 /* BORDER */
 .invitation-border{
     border:2px solid gold;
-    border-radius:20px;
-    box-shadow:0 0 15px rgba(255,215,0,0.5);
-    padding:20px;
+    border-radius:25px;
+    box-shadow:0 0 25px rgba(255,215,0,0.6);
     width:100%;
-    max-width:720px;
+    max-width:850px;
+    height:100%;
+    display:flex;
+    padding:25px;
 }
 
 /* CARD */
 .card{
     background:white;
-    padding:20px;
-    border-radius:15px;
+    border-radius:20px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between; /* 👈 This stretches content nicely */
     text-align:center;
+    padding:40px 35px;
     color:#3b0066;
 }
 
@@ -106,8 +112,8 @@ h3{
 
 /* BODY */
 .card p{
-    font-size:14px;
-    line-height:1.4;
+    font-size:17px;
+    line-height:1.6;
 }
 
 /* GRAND NAMES */
@@ -122,8 +128,8 @@ h3{
 .names small{
     display:block;
     font-family:'Cormorant Garamond', serif;
-    font-size:13px;
-    margin-top:6px;
+    font-size:14px;
+    margin-top:9px;
 }
 
 /* LOVE SYMBOL */
@@ -135,9 +141,9 @@ h3{
 /* DATE */
 .date{
     font-family:'Cinzel', serif;
-    font-size:15px;
+    font-size:18px;
     color:#b8860b;
-    margin-top:8px;
+    margin-top:15px;
 }
 
 /* LOCATION */
@@ -149,7 +155,7 @@ h3{
 /* FOOTER */
 .footer{
     margin-top:8px;
-    font-size:13px;
+    font-size:15px;
 }
 
 /* BUTTONS */
