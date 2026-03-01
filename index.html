@@ -20,12 +20,12 @@ html,body{
     font-family:'Cormorant Garamond', serif;
 }
 
-/* PARTICLE CANVAS (NOW IN FRONT) */
+/* PARTICLES FRONT */
 #particles{
     position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:50; /* 👈 Now above everything */
+    z-index:50;
 }
 
 /* FIRST PAGE */
@@ -74,10 +74,10 @@ html,body{
 .invitation-border{
     border:3px solid gold;
     border-radius:30px;
-    box-shadow:0 0 50px rgba(255,215,0,0.8);
+    box-shadow:0 0 45px rgba(255,215,0,0.8);
     width:100%;
     max-width:850px;
-    height:90vh;
+    height:95vh;
     padding:20px;
     display:flex;
 }
@@ -87,12 +87,13 @@ html,body{
     background:white;
     border-radius:25px;
     width:100%;
-    padding:30px;
+    padding:25px;
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
+    justify-content:flex-start;
     text-align:center;
     color:#3b0066;
+    overflow:hidden;
 }
 
 /* LOGO */
@@ -116,7 +117,7 @@ h3{
     line-height:1.5;
 }
 
-/* GRAND SHINING NAMES */
+/* SHINING NAMES */
 .names{
     font-family:'Cinzel Decorative', serif;
     font-size:clamp(32px,5vw,44px);
@@ -187,12 +188,14 @@ h3{
 .map-btn{background:#b8860b;}
 .whatsapp-btn{background:#25D366;}
 
-/* COUNTDOWN */
+/* COUNTDOWN BIGGER */
 .countdown{
-    margin-top:12px;
-    font-size:16px;
-    font-weight:600;
-    color:#5e239d;
+    margin-top:20px;
+    font-size:24px;
+    font-weight:700;
+    font-family:'Cinzel', serif;
+    color:#b8860b;
+    letter-spacing:1px;
 }
 
 </style>
@@ -211,7 +214,7 @@ h3{
     <div class="invitation-border">
         <div class="card">
 
-            <div>
+            <div style="flex:1;">
                 <div class="logo">
                     <img src="logo.png" alt="Sacred Symbol">
                 </div>
