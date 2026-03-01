@@ -124,13 +124,14 @@ h3{
     font-family:'Cinzel Decorative', serif;
     font-size:clamp(30px,5vw,40px);
     font-weight:700;
-    margin:14px 0 4px 0;
+    margin:12px 0 2px 0;   /* reduced bottom space */
     background:linear-gradient(90deg,#5e239d,#ffd700,#5e239d);
     background-size:200% auto;
     color:transparent;
     -webkit-background-clip:text;
     background-clip:text;
     animation:shine 4s linear infinite;
+    line-height:1.1;      /* tighter name spacing */
 }
 
 @keyframes shine{
@@ -142,8 +143,8 @@ h3{
 .names small{
     display:block;
     font-size:14px;
-    margin-top:2px;
-    white-space:nowrap;   /* 👈 prevents breaking */
+    margin-top:2px;       /* very small gap */
+    line-height:1.2;      /* tighter */
     color:#3b0066;
 }
 
