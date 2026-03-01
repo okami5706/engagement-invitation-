@@ -15,8 +15,8 @@
 }
 
 html,body{
-    height:100hv;
-    overflow:hidden; /* No scroll */
+    height:100vh;
+    overflow:hidden;
     font-family:'Cormorant Garamond', serif;
 }
 
@@ -34,7 +34,7 @@ html,body{
 }
 
 .first-page p{
-    font-size:clamp(20px,5vw,28px);
+    font-size:clamp(22px,5vw,30px);
     font-family:'Cinzel', serif;
     font-weight:600;
     margin-bottom:20px;
@@ -61,7 +61,7 @@ html,body{
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:25px;
+    padding:20px;
 }
 
 @keyframes bgMove{
@@ -72,42 +72,42 @@ html,body{
 
 /* BORDER */
 .invitation-border{
-    border:2px solid gold;
-    border-radius:25px;
-    box-shadow:0 0 25px rgba(255,215,0,0.6);
+    border:3px solid gold;
+    border-radius:30px;
+    box-shadow:0 0 35px rgba(255,215,0,0.6);
     width:100%;
     max-width:850px;
     height:100%;
-    display:flex;
     padding:25px;
+    display:flex;
 }
 
 /* CARD */
 .card{
     background:white;
-    border-radius:20px;
+    border-radius:25px;
     width:100%;
+    padding:40px 35px;
     display:flex;
     flex-direction:column;
-    justify-content:space-between; /* 👈 This stretches content nicely */
+    justify-content:space-between;
     text-align:center;
-    padding:40px 35px;
     color:#3b0066;
 }
 
 /* LOGO */
 .logo img{
-    width:10px;
-    opacity:0.6;
-    margin-bottom:10px;
+    width:25px;
+    opacity:0.7;
+    margin-bottom:15px;
 }
 
 /* HEADING */
 h3{
     font-family:'Cinzel', serif;
-    font-size:18px;
+    font-size:22px;
     color:#b8860b;
-    margin-bottom:6px;
+    margin-bottom:10px;
 }
 
 /* BODY */
@@ -119,57 +119,56 @@ h3{
 /* GRAND NAMES */
 .names{
     font-family:'Cinzel Decorative', serif;
-    font-size:clamp(26px,5vw,34px);
+    font-size:clamp(32px,5vw,42px);
     font-weight:700;
-    margin:18px 0 4px 0;
+    margin:25px 0 8px 0;
     color:#5e239d;
 }
 
 .names small{
     display:block;
-    font-family:'Cormorant Garamond', serif;
-    font-size:14px;
-    margin-top:9px;
+    font-size:16px;
+    margin-top:10px;
 }
 
 /* LOVE SYMBOL */
 .love-symbol img{
-    width:50px;
-    margin:8px 0;
+    width:55px;
+    margin:12px 0;
 }
 
 /* DATE */
 .date{
     font-family:'Cinzel', serif;
-    font-size:18px;
+    font-size:19px;
     color:#b8860b;
     margin-top:15px;
 }
 
 /* LOCATION */
 .location{
-    font-size:14px;
-    margin-top:4px;
+    font-size:16px;
+    margin-top:6px;
 }
 
 /* FOOTER */
 .footer{
-    margin-top:8px;
-    font-size:15px;
+    margin-top:15px;
+    font-size:16px;
 }
 
 /* BUTTONS */
 .buttons{
-    margin-top:10px;
+    margin-top:20px;
     display:flex;
     justify-content:center;
-    gap:8px;
+    gap:15px;
 }
 
 .buttons a{
-    padding:6px 14px;
-    border-radius:18px;
-    font-size:12px;
+    padding:10px 22px;
+    border-radius:25px;
+    font-size:14px;
     text-decoration:none;
     color:white;
     font-family:'Cinzel', serif;
@@ -180,8 +179,8 @@ h3{
 
 /* COUNTDOWN */
 .countdown{
-    margin-top:8px;
-    font-size:21px;
+    margin-top:15px;
+    font-size:18px;
     font-weight:600;
     color:#5e239d;
 }
