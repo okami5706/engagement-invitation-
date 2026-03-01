@@ -25,7 +25,7 @@ html,body{
     z-index:50;
 }
 
-/* MUSIC HIDDEN */
+/* MUSIC */
 audio{display:none;}
 
 /* FIRST PAGE */
@@ -93,15 +93,15 @@ audio{display:none;}
     color:#3b0066;
 }
 
-/* LOGO */
+/* LOGO 15px */
 .logo img{
-    width:60px;
-    height:60px;
+    width:15px;
+    height:15px;
     object-fit:cover;
     border-radius:50%;
     opacity:0.8;
-    box-shadow:0 0 12px gold;
-    margin-bottom:10px;
+    box-shadow:0 0 6px gold;
+    margin-bottom:8px;
 }
 
 /* HEADING */
@@ -138,11 +138,12 @@ h3{
     100%{background-position:200%;}
 }
 
+/* FIXED SMALL TEXT (NO BREAK) */
 .names small{
     display:block;
-    font-size:15px;
+    font-size:14px;
     margin-top:2px;
-    line-height:1.2;
+    white-space:nowrap;   /* 👈 prevents breaking */
     color:#3b0066;
 }
 
@@ -201,7 +202,7 @@ h3{
     color:#b8860b;
 }
 
-/* PARTICLES ANIMATION */
+/* PARTICLES */
 canvas{display:block;}
 
 </style>
@@ -288,9 +289,8 @@ function revealInvitation(){
     music.volume=0;
     music.play();
     let fade=setInterval(()=>{
-        if(music.volume<0.6){
-            music.volume+=0.05;
-        } else clearInterval(fade);
+        if(music.volume<0.6){ music.volume+=0.05; }
+        else clearInterval(fade);
     },200);
 }
 
