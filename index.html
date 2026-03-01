@@ -20,12 +20,12 @@ html,body{
     font-family:'Cormorant Garamond', serif;
 }
 
-/* PARTICLE CANVAS */
+/* PARTICLE CANVAS (NOW IN FRONT) */
 #particles{
-    position:absolute;
+    position:fixed;
     inset:0;
     pointer-events:none;
-    z-index:0;
+    z-index:50; /* 👈 Now above everything */
 }
 
 /* FIRST PAGE */
@@ -38,7 +38,7 @@ html,body{
     align-items:center;
     flex-direction:column;
     text-align:center;
-    z-index:10;
+    z-index:100;
 }
 
 .first-page p{
@@ -62,36 +62,24 @@ html,body{
 
 /* INVITATION PAGE */
 .invitation-page{
-    position:relative;
     height:100vh;
-    background:linear-gradient(-45deg,#14001f,#3b0066,#2a0845,#5e239d);
-    background-size:400% 400%;
-    animation:bgMove 20s ease infinite;
+    background:radial-gradient(circle at center,#3b0066,#14001f);
     display:flex;
     justify-content:center;
     align-items:center;
     padding:20px;
-    overflow:hidden;
-}
-
-@keyframes bgMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
 }
 
 /* BORDER */
 .invitation-border{
     border:3px solid gold;
     border-radius:30px;
-    box-shadow:0 0 40px rgba(255,215,0,0.6);
+    box-shadow:0 0 50px rgba(255,215,0,0.8);
     width:100%;
     max-width:850px;
     height:90vh;
     padding:20px;
     display:flex;
-    position:relative;
-    z-index:1;
 }
 
 /* CARD */
@@ -110,7 +98,7 @@ html,body{
 /* LOGO */
 .logo img{
     width:55px;
-    opacity:0.7;
+    opacity:0.8;
     margin-bottom:10px;
 }
 
@@ -128,13 +116,12 @@ h3{
     line-height:1.5;
 }
 
-/* SHINING NAMES */
+/* GRAND SHINING NAMES */
 .names{
     font-family:'Cinzel Decorative', serif;
-    font-size:clamp(30px,5vw,40px);
+    font-size:clamp(32px,5vw,44px);
     font-weight:700;
-    margin:20px 0 8px 0;
-    position:relative;
+    margin:22px 0 10px 0;
     background:linear-gradient(90deg,#5e239d,#ffd700,#5e239d);
     background-size:200% auto;
     color:transparent;
@@ -157,14 +144,14 @@ h3{
 
 /* LOVE SYMBOL */
 .love-symbol img{
-    width:50px;
+    width:55px;
     margin:10px 0;
 }
 
 /* DATE */
 .date{
     font-family:'Cinzel', serif;
-    font-size:17px;
+    font-size:18px;
     color:#b8860b;
 }
 
@@ -182,14 +169,14 @@ h3{
 
 /* BUTTONS */
 .buttons{
-    margin-top:10px;
+    margin-top:12px;
     display:flex;
     justify-content:center;
-    gap:12px;
+    gap:14px;
 }
 
 .buttons a{
-    padding:8px 18px;
+    padding:9px 20px;
     border-radius:25px;
     font-size:14px;
     text-decoration:none;
@@ -202,7 +189,7 @@ h3{
 
 /* COUNTDOWN */
 .countdown{
-    margin-top:10px;
+    margin-top:12px;
     font-size:16px;
     font-weight:600;
     color:#5e239d;
@@ -213,14 +200,14 @@ h3{
 
 <body>
 
+<canvas id="particles"></canvas>
+
 <div class="first-page" id="firstPage">
     <p>Two Souls. One Eternal Promise.</p>
     <button onclick="revealInvitation()">Open Invitation</button>
 </div>
 
 <div class="invitation-page">
-    <canvas id="particles"></canvas>
-
     <div class="invitation-border">
         <div class="card">
 
@@ -287,11 +274,13 @@ h3{
 </div>
 
 <script>
+
+/* Reveal */
 function revealInvitation(){
     document.getElementById("firstPage").style.display="none";
 }
 
-/* COUNTDOWN */
+/* Countdown */
 const target=new Date("April 30, 2026 18:00:00").getTime();
 const countdown=document.getElementById("countdown");
 
@@ -312,20 +301,22 @@ setInterval(()=>{
     countdown.innerHTML=`${d} Days ${h} Hours ${m} Minutes ${s} Seconds`;
 },1000);
 
-/* SHINING FALLING PARTICLES */
+/* GRAND FRONT PARTICLES */
 const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 let particles=[];
-for(let i=0;i<100;i++){
+
+for(let i=0;i<120;i++){
     particles.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
-        size:Math.random()*3,
-        speed:Math.random()*1+0.5,
-        opacity:Math.random()
+        size:Math.random()*4,
+        speed:Math.random()*1.2+0.3,
+        opacity:Math.random(),
+        twinkle:Math.random()*0.02
     });
 }
 
@@ -333,10 +324,15 @@ function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
     particles.forEach(p=>{
+        p.opacity+=p.twinkle;
+        if(p.opacity>=1 || p.opacity<=0.2){
+            p.twinkle*=-1;
+        }
+
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
         ctx.fillStyle=`rgba(255,215,0,${p.opacity})`;
-        ctx.shadowBlur=10;
+        ctx.shadowBlur=20;
         ctx.shadowColor="gold";
         ctx.fill();
 
