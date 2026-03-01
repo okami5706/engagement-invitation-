@@ -76,7 +76,7 @@ audio{display:none;}
     border-radius:30px;
     box-shadow:0 0 45px rgba(255,215,0,0.8);
     width:100%;
-    max-width:930px;
+    max-width:1000px;
     padding:20px;
     display:flex;
 }
@@ -125,7 +125,7 @@ h3{
     font-family:'Cinzel Decorative', serif;
     font-size:clamp(30px,5vw,40px);
     font-weight:700;
-    margin:12px 0 2px 0;   /* reduced bottom space */
+    margin:10px 0 2px 0;   /* reduced bottom space */
     background:linear-gradient(90deg,#5e239d,#ffd700,#5e239d);
     background-size:200% auto;
     color:transparent;
@@ -142,14 +142,16 @@ h3{
 
 /* FIXED SMALL TEXT (NO BREAK) */
 .names small{
-    overflow:hidden;
-    text-overflow:ellipsis;
     display:block;
-    font-size:clamp(12px,3.2vw,14px); /* responsive */
+    font-size:clamp(13px,3vw,15px);
     margin-top:2px;
-    line-height:1.2;
+    line-height:1.1;      /* tight spacing */
     color:#3b0066;
-    white-space:nowrap;              /* 🚀 prevents breaking */
+}
+
+.names small span{
+    display:block;        /* forces next line */
+    margin-top:0px;       /* NO EXTRA SPACE */
 }
 
 /* LOVE SYMBOL */
@@ -242,7 +244,10 @@ canvas{display:block;}
 
             <div class="names">
                 Kavya Anand
-                <small>D/O Dr. P. Anand & Mrs. Abarna Anand</small>
+                <small class="parents">
+                    D/O Dr. P. Anand &
+                    <span>Mrs. Abarna Anand</span>
+                </small>
             </div>
 
             <div class="love-symbol">
