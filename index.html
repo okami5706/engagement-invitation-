@@ -16,7 +16,7 @@
 
 html,body{
     height:100%;
-    overflow:hidden; /* Important: No scroll */
+    overflow:hidden;
     font-family:'Cormorant Garamond', serif;
 }
 
@@ -71,7 +71,6 @@ html,body{
     100%{background-position:0% 50%;}
 }
 
-/* BORDER */
 .invitation-border{
     border:2px solid gold;
     border-radius:20px;
@@ -81,7 +80,6 @@ html,body{
     max-width:700px;
 }
 
-/* CARD */
 .card{
     background:white;
     padding:20px;
@@ -90,7 +88,6 @@ html,body{
     color:#3b0066;
 }
 
-/* LOGO */
 .logo{
     margin-bottom:15px;
 }
@@ -100,7 +97,6 @@ html,body{
     opacity:0.6;
 }
 
-/* HEADING */
 h3{
     font-family:'Cinzel', serif;
     font-size:20px;
@@ -108,13 +104,11 @@ h3{
     margin-bottom:8px;
 }
 
-/* BODY */
 .card p{
     font-size:15px;
     line-height:1.4;
 }
 
-/* NAMES */
 .names{
     font-family:'Great Vibes', cursive;
     font-size:clamp(32px,6vw,42px);
@@ -127,13 +121,11 @@ h3{
     font-size:14px;
 }
 
-/* Love Symbol */
 .love-symbol img{
     width:60px;
     margin:8px 0;
 }
 
-/* DATE */
 .date{
     font-family:'Cinzel', serif;
     font-size:16px;
@@ -141,38 +133,39 @@ h3{
     margin-top:10px;
 }
 
-/* COUNTDOWN */
-.countdown{
-    margin-top:8px;
-    font-size:14px;
-    font-weight:600;
-    color:#5e239d;
-}
-
-/* FOOTER */
 .footer{
     margin-top:10px;
     font-size:14px;
 }
 
-/* BUTTONS */
+/* Buttons in Same Line */
 .buttons{
     margin-top:12px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
 }
 
 .buttons a{
-    display:inline-block;
-    margin:5px;
     padding:8px 16px;
     border-radius:20px;
     font-size:14px;
     text-decoration:none;
     color:white;
     font-family:'Cinzel', serif;
+    white-space:nowrap;
 }
 
 .map-btn{background:#b8860b;}
 .whatsapp-btn{background:#25D366;}
+
+/* Countdown at Bottom */
+.countdown{
+    margin-top:15px;
+    font-size:14px;
+    font-weight:600;
+    color:#5e239d;
+}
 
 </style>
 </head>
@@ -202,7 +195,7 @@ h3{
             </p>
 
             <div class="names">
-                Kavya Anand
+                KAvyA Anand
                 <small>D/O Dr.P.Anand & Mrs.Abarna Anand</small>
             </div>
 
@@ -211,7 +204,7 @@ h3{
             </div>
 
             <div class="names">
-                Sanjay
+                SAnjAy
                 <small>S/O Mr.M.Dayalan & Mrs.Latha</small>
             </div>
 
@@ -220,14 +213,13 @@ h3{
                 6 PM Onwards
             </div>
 
-            <div class="countdown" id="countdown"></div>
-
             <p>Priya Mahal, Uthiramerur</p>
 
             <div class="footer">
                 Join us as we gather with family and friends to celebrate love, commitment, and the promise of forever.
             </div>
 
+            <!-- Buttons same line -->
             <div class="buttons">
                 <a class="map-btn" target="_blank"
                    href="https://maps.app.goo.gl/i2AwdwUCDFbnVZWR9">
@@ -240,6 +232,9 @@ h3{
                 </a>
             </div>
 
+            <!-- Countdown moved to bottom -->
+            <div class="countdown" id="countdown"></div>
+
         </div>
     </div>
 </div>
@@ -249,7 +244,7 @@ function revealInvitation(){
     document.getElementById("firstPage").style.display="none";
 }
 
-/* COUNTDOWN */
+/* Countdown */
 const target=new Date("April 30, 2026 18:00:00").getTime();
 const countdown=document.getElementById("countdown");
 
