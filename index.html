@@ -20,9 +20,9 @@ html,body{
     font-family:'Cormorant Garamond', serif;
 }
 
-/* SPARKLE CANVAS */
-canvas{
-    position:fixed;
+/* PARTICLE CANVAS */
+#particles{
+    position:absolute;
     inset:0;
     pointer-events:none;
     z-index:0;
@@ -62,6 +62,7 @@ canvas{
 
 /* INVITATION PAGE */
 .invitation-page{
+    position:relative;
     height:100vh;
     background:linear-gradient(-45deg,#14001f,#3b0066,#2a0845,#5e239d);
     background-size:400% 400%;
@@ -70,8 +71,7 @@ canvas{
     justify-content:center;
     align-items:center;
     padding:20px;
-    position:relative;
-    z-index:1;
+    overflow:hidden;
 }
 
 @keyframes bgMove{
@@ -87,9 +87,11 @@ canvas{
     box-shadow:0 0 40px rgba(255,215,0,0.6);
     width:100%;
     max-width:850px;
-    height:90vh;   /* Controlled height */
+    height:90vh;
     padding:20px;
     display:flex;
+    position:relative;
+    z-index:1;
 }
 
 /* CARD */
@@ -107,7 +109,7 @@ canvas{
 
 /* LOGO */
 .logo img{
-    width:25px;
+    width:55px;
     opacity:0.7;
     margin-bottom:10px;
 }
@@ -133,7 +135,7 @@ h3{
     font-weight:700;
     margin:20px 0 8px 0;
     position:relative;
-    background:linear-gradient(90deg,#5e239d,#b8860b,#5e239d);
+    background:linear-gradient(90deg,#5e239d,#ffd700,#5e239d);
     background-size:200% auto;
     color:transparent;
     -webkit-background-clip:text;
@@ -148,7 +150,6 @@ h3{
 
 .names small{
     display:block;
-    font-family:'Cormorant Garamond', serif;
     font-size:15px;
     margin-top:8px;
     color:#3b0066;
@@ -212,14 +213,14 @@ h3{
 
 <body>
 
-<canvas id="sparkles"></canvas>
-
 <div class="first-page" id="firstPage">
     <p>Two Souls. One Eternal Promise.</p>
     <button onclick="revealInvitation()">Open Invitation</button>
 </div>
 
 <div class="invitation-page">
+    <canvas id="particles"></canvas>
+
     <div class="invitation-border">
         <div class="card">
 
@@ -286,13 +287,11 @@ h3{
 </div>
 
 <script>
-
-/* Reveal */
 function revealInvitation(){
     document.getElementById("firstPage").style.display="none";
 }
 
-/* Countdown */
+/* COUNTDOWN */
 const target=new Date("April 30, 2026 18:00:00").getTime();
 const countdown=document.getElementById("countdown");
 
@@ -313,36 +312,43 @@ setInterval(()=>{
     countdown.innerHTML=`${d} Days ${h} Hours ${m} Minutes ${s} Seconds`;
 },1000);
 
-/* Sparkling Particles */
-const canvas=document.getElementById("sparkles");
+/* SHINING FALLING PARTICLES */
+const canvas=document.getElementById("particles");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 
 let particles=[];
-
-for(let i=0;i<80;i++){
+for(let i=0;i<100;i++){
     particles.push({
         x:Math.random()*canvas.width,
         y:Math.random()*canvas.height,
-        size:Math.random()*2,
-        speed:Math.random()*0.7+0.3
+        size:Math.random()*3,
+        speed:Math.random()*1+0.5,
+        opacity:Math.random()
     });
 }
 
 function animate(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle="rgba(255,215,0,0.8)";
+
     particles.forEach(p=>{
         ctx.beginPath();
         ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+        ctx.fillStyle=`rgba(255,215,0,${p.opacity})`;
+        ctx.shadowBlur=10;
+        ctx.shadowColor="gold";
         ctx.fill();
+
         p.y+=p.speed;
-        if(p.y>canvas.height)p.y=0;
+        if(p.y>canvas.height){
+            p.y=0;
+            p.x=Math.random()*canvas.width;
+        }
     });
+
     requestAnimationFrame(animate);
 }
-
 animate();
 
 </script>
